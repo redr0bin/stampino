@@ -1,0 +1,25 @@
+language: go
+go:
+  - 1.13.4
+
+notifications:
+  email: false
+
+jobs:
+  include:
+    - stage: lint & test
+      if: (branch = master) AND (type IN (push, pull_request))
+      script:
+        - echo "lint & test"
+    - stage: build
+      if: (branch = master) AND (type IN (push, pull_request))
+      script:
+        - echo "build on push or pr"
+    - stage: package
+      if: (branch = master) AND (type IN (push))
+      script:
+        - echo "package on push to master"
+    - stage: promote
+      if: (branch = master) AND ((type IN (tags)))
+      script:
+        - echo "promote on tag to master"
