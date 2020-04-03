@@ -16,7 +16,7 @@ jobs:
       script:
         - echo "build on push or pr"
     - stage: package
-      if: (branch = master) AND (type IN (push))
+      if: (branch = master) AND (type = push)
       script:
         - echo "package on push to master"
     - stage: promote
