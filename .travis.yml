@@ -20,6 +20,6 @@ jobs:
       script:
         - echo "package on push to master"
     - stage: promote
-      if: (branch = master) AND (NOT (type IN (push, pull_request)))
+      if: (branch = master) AND (tag = v.*)
       script:
         - echo "promote on tag to master"
