@@ -20,6 +20,6 @@ jobs:
       script:
         - echo "package on push to master"
     - stage: promote
-      if: tag IS present
+      if: tag =~ ^v[0-9]+\.[0-9]+\.[0-9]+
       script:
         - echo "promote on tag to master"
