@@ -2,6 +2,9 @@ language: go
 go:
   - 1.13.4
 
+git:
+  depth: 1
+
 notifications:
   email: false
 
