@@ -6,5 +6,5 @@ GIT_HASH := $(shell git rev-parse --short HEAD)
 GIT_TAG_HASH ?=
 
 test:
-	@echo $(GIT_BRANCH1)
-	@echo $(GIT_BRANCH2)
+	echo $(GIT_BRANCH1)
+	echo $(GIT_BRANCH2)
