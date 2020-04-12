@@ -10,8 +10,8 @@ notifications:
 
 jobs:
   include:
-    - stage: lint & test
-      if: (branch = master) AND (type IN (push, pull_request))
+    # - stage: lint & test
+    #   if: (branch = master) AND (type IN (push, pull_request))
     - stage: build
       if: (branch = master) AND (type IN (push, pull_request))
       workspaces:
