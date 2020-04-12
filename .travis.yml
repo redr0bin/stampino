@@ -12,17 +12,21 @@ jobs:
   include:
     - stage: lint & test
       if: (branch = master) AND (type IN (push, pull_request))
-      script:
-        - echo "lint & test"
-        - make test
     - stage: build
       if: (branch = master) AND (type IN (push, pull_request))
+      workspaces:
+        create:
+          name: ws
       script:
-        - echo "build on push or pr"
+        - touch test.txt
     - stage: package
       if: (branch = master) AND (type = push)
+      workspaces:
+        use:
+          - ws
       script:
         - echo "package on push to master"
+        - cat test.txt
     - stage: promote
       if: tag =~ ^v[0-9]+\.[0-9]+\.[0-9]+
       script:
