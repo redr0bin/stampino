@@ -20,10 +20,9 @@ jobs:
       script:
         - touch test.txt
     - stage: package
-      if: (branch = master) AND (type = push)
       workspaces:
-        use:
-          - ws
+        use: ws
+      if: (branch = master) AND (type = push)
       script:
         - echo "package on push to master"
         - cat test.txt
